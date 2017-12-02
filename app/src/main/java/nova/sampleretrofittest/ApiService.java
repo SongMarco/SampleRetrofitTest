@@ -8,6 +8,8 @@ import retrofit2.http.Query;
 
 
 public interface ApiService {
+//    public static final String API_URL2 = "http://115.68.231.13/project/android/";
+
     public static final String API_URL = "http://jsonplaceholder.typicode.com/";
 
     @GET("comments")
@@ -15,6 +17,9 @@ public interface ApiService {
 
     @POST("comments")
     Call<ResponseBody>getPostComment(@Query("postId") int postId);
+
+    @GET("callAllFeeds.php")
+    Call<ResponseBody>getList();
 
 
 }

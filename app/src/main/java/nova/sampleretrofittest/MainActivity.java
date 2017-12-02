@@ -23,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
         retrofit = new Retrofit.Builder().baseUrl(ApiService.API_URL).build();
         apiService = retrofit.create(ApiService.class);
 
-//get
-        Call<ResponseBody> comment = apiService.getComment(1);
+
+        // 게시물 리스트 불러오기
+
+        Call<ResponseBody> comment = apiService.getList();
         comment.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -41,24 +43,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //post부분
-        Call<ResponseBody>comment2 = apiService.getPostComment(2);
-        comment2.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    Log.v("Test", response.body().string());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        //region get 부분
+        ////get
+//        Call<ResponseBody> comment = apiService.getComment(1);
+//        comment.enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                try {
+//                    Log.v("Test", response.body().string());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//          @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//
+//            }
+//        });
+        //endregion
 
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-            }
-        });
+        //region post부분
+        //        //post부분
+//        Call<ResponseBody>comment2 = apiService.getPostComment(2);
+//        comment2.enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                try {
+//                    Log.v("Test", response.body().string());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//
+//            }
+//        });
+        //endregion
 
     }
 }
