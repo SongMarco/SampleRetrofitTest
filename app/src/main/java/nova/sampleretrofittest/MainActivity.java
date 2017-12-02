@@ -24,9 +24,29 @@ public class MainActivity extends AppCompatActivity {
         apiService = retrofit.create(ApiService.class);
 
 
-        // 게시물 리스트 불러오기
+//        // 게시물 리스트 불러오기
+//
+//        Call<ResponseBody> comment = apiService.getList();
+//        comment.enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                try {
+//                    Log.v("Test", response.body().string());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//
+//            }
+//        });
 
-        Call<ResponseBody> comment = apiService.getList();
+
+        //글쓰기
+
+        Call<ResponseBody> comment = apiService.write("작가","제목","후훗");
         comment.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
