@@ -44,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
 
-        //글쓰기
+        //region//글쓰기 - 시험삼아 get으로
 
-        Call<ResponseBody> comment = apiService.write("작가","제목","후훗");
+
+        Call<ResponseBody> comment = apiService.write("작가1","제목","후훗");
         comment.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //endregion
 
         //region get 부분
         ////get
