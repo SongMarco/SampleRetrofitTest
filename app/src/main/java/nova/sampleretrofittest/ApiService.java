@@ -6,7 +6,6 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 
 //Api를 제공해주는 메소드를 정의해놓은 인터페이스다
@@ -24,12 +23,12 @@ public interface ApiService {
 //    public static final String API_URL = "http://jsonplaceholder.typicode.com/";
 
 
-
-    @GET("comments")
-    Call<ResponseBody>getComment(@Query("postId") int postId);
-
-    @POST("comments")
-    Call<ResponseBody>getPostComment(@Query("postId") int postId);
+    //예제 코드들
+//    @GET("comments")
+//    Call<ResponseBody>getComment(@Query("postId") int postId);
+//
+//    @POST("comments")
+//    Call<ResponseBody>getPostComment(@Query("postId") int postId);
 
 
     //게시판 리스트를 불러오는 메소드. 파라미터 필요 없음
@@ -40,11 +39,5 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("writeFeed.php")
     Call<ResponseBody>write (@Field("writer") String writer, @Field("title") String title, @Field("content") String content );
-
-
-
-
-
-
 
 }

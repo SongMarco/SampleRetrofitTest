@@ -24,30 +24,9 @@ public class MainActivity extends AppCompatActivity {
         apiService = retrofit.create(ApiService.class);
 
 
-//        // 게시물 리스트 불러오기
-//
-//        Call<ResponseBody> comment = apiService.getList();
-//        comment.enqueue(new Callback<ResponseBody>() {
-//            @Override
-//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                try {
-//                    Log.v("Test", response.body().string());
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseBody> call, Throwable t) {
-//
-//            }
-//        });
+        // 게시물 리스트 불러오기
 
-
-        //region//글쓰기 - 시험삼아 get으로
-
-
-        Call<ResponseBody> comment = apiService.write("작가1","제목","후훗");
+        Call<ResponseBody> comment = apiService.getList();
         comment.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -63,7 +42,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //endregion
+
+
+//        //region//글쓰기 - 시험삼아 get으로
+//
+//
+//        Call<ResponseBody> comment33 = apiService.write("작가1","제목","후훗");
+//        comment.enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                try {
+//                    Log.v("Test", response.body().string());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//
+//            }
+//        });
+//        //endregion
 
         //region get 부분
         ////get
